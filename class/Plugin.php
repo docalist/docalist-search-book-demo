@@ -113,8 +113,8 @@ class Plugin
             'menu_icon' => 'dashicons-book-alt',
             'show_in_nav_menus' => false,
             'labels' => [
-                'name' => _x('Livres', 'Post Type General Name', 'docalist-search-book-demo'),
-                'singular_name' => _x('Livre', 'Post Type Singular Name', 'docalist-search-book-demo'),
+                'name' => __('Livres', 'docalist-search-book-demo'),
+                'singular_name' => __('Livre', 'docalist-search-book-demo'),
                 'menu_name' => __('Livres (demo)', 'docalist-search-book-demo'),
                 'name_admin_bar' => __('Livre (demo)', 'docalist-search-book-demo'),
                 'all_items' => __('Liste des livres', 'docalist-search-book-demo'),
