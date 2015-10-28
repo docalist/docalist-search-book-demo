@@ -31,3 +31,13 @@ Et bien sûr, [les pull requests sont plus que bienvenues](https://help.github.c
   - [La classe `BookIndexer`](structure.md#la-classe-bookindexer)
     - [La méthode `mapping()`](structure.md#la-méthode-mapping)
     - [La méthode `map()`](structure.md#la-méthode-map)
+
+### [Première indexation](indexing.md)
+  - [Créons notre index](indexing.md#créons-notre-index)
+  - [Consulter le mapping généré](indexing.md#consulter-le-mapping-généré)
+  - [Voir les settings de l'index](indexing.md#voir-les-settings-de-lindex)
+  - [Supprimons notre index ElasticSearch](indexing.md#supprimons-notre-index-elasticSearch)
+  - [Indexons nos livres](indexing.md#indexons-nos-livres)
+  - [Vérifions notre index](indexing.md#vérifions-notre-index)
+  - [Faisons quelques recherches](indexing.md#faisons-quelques-recherches)
+  - [Indexation en temps réel](indexing.md#indexation-en-temps-réel)
