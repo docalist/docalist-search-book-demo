@@ -58,5 +58,7 @@ Et bien sûr, [les pull requests sont plus que bienvenues](https://help.github.c
   - [Exécuter la requête](searchapi.md#exécuter-la-requête)
     - [La classe `SearchResults`](searchapi.md#la-classe-searchresults)
     - [Afficher une page de résultats](searchapi.md#afficher-une-page-de-résultats)
-  - [Créons un formulaire de recherche utilisateur](searchapi.md#créons-un-formulaire-de-recherche-utilisateur)
+  - [Créons un formulaire de recherche utilisateur](searchapi.md#créons-un-formulaire-de-recherche-utilisateur) (TODO)
 
+### Annexe
+  - [Architecture, conventions et bonnes pratiques](architecture.md)
