@@ -1,5 +1,7 @@
 # Installation
 
+## Pré-requis
+
 Pour installer notre plugin de démo, il va nous falloir :
 - une pile [LAMP](https://fr.wikipedia.org/wiki/LAMP) à jour (version php : minimum php 5.4)
 - un [WordPress](https://wordpress.org/download/) fonctionnel,
