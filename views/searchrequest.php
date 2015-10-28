@@ -16,21 +16,16 @@ use Docalist\Search\SearchRequest;
 /*
  * Démo de l'API SearchRequest de docalist-search.
  */
-
 ?>
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-
 <div class="wrap">
     <h2><?=get_admin_page_title()?></h2>
 
-    <p>Cette page crée une requête qui recherche :</p>
+    <p>Cette page crée une requête docalist-search qui recherche :</p>
     <ul class="ul-square">
         <li>les documents de type <code>bookdemo</code>,</li>
         <li>qui ont le genre littéraire <code>roman</code>,</li>
         <li>et contiennent le mot <code>vie</code> et l'expression exacte
-            <code>remise en question</code> dans la description.
+            <code>"remise en question"</code> dans la description.
         </li>
     </ul>
     <p>La requête est codée en dur dans le code source
@@ -47,24 +42,33 @@ use Docalist\Search\SearchRequest;
     // Exécute la requête
     $results = $request->execute();
 
-    // Affiche la requête exécutée (et le temps total d'exécution)
+    // Affiche la requête exécutée
     echo '<h2>Recherche de livres</h2>';
     printf('<p>Votre recherche : <code>%s</code></p>', $request->asEquation());
+
+    // Affiche le temps d'exécution de la requête
     printf(
         '<p><small>Requête exécutée en %d ms (temps total %d ms).</small></p>',
         $results->took(),
         $results->time() * 1000
     );
 
-    // Affiche le nombre de réponses obtenues
+    // Aucune réponse ?
     if (empty($hits = $results->hits())) {
         echo '<h2>Aucune réponse, désolé !</h2>';
-    } else {
-        $total = $results->total();
-        $start = 1 + ($request->page() - 1) * $request->size();
-        $end = min($total, $start + $request->size() - 1);
-        printf('<h2>%d réponse(s) trouvée(s), affichage des réponses %d à %d :</h2>', $total, $start, $end);
+    }
 
+    // Affiche les réponses obtenues
+    else {
+        // Indique le nombre de réponses obtenues et la position des résultats affichés
+        printf(
+            '<h2>%d réponse(s) trouvée(s), affichage des réponses %d à %d :</h2>',
+            $total = $results->total(),
+            $start = 1 + ($request->page() - 1) * $request->size(),
+            min($total, $start + $request->size() - 1)
+        );
+
+        // Affiche la liste des réponses
         echo '<ul class="ul-square">';
         foreach ($hits as $hit) {
             $post = get_post($hit->_id); /* @var $post WP_Post */
@@ -78,5 +82,4 @@ use Docalist\Search\SearchRequest;
         echo '</ul>';
     }
 ?>
-
 </div>
