@@ -60,7 +60,7 @@ class Plugin {
                 __('API SearchRequest', 'docalist-search-demo-book/languages'),
                 'manage_options',
                 'docalist-book-search-request', function() {
-                    $this->view('searchrequest-test');
+                    $this->view('searchrequest');
                 });
         });
 
@@ -125,7 +125,7 @@ class Plugin {
     }
 
     /**
-     * Affiche une vue (un template)
+     * Affiche une vue (un template).
      *
      * @param string $view Nom de la vue à afficher (dans le répertoire 'views' du plugin,
      * ne pas indiquer l'extension '.php' qui est ajoutée automatiquement).
@@ -156,5 +156,4 @@ class Plugin {
         // Exécute le template
         return $render($data);
     }
-
 }
