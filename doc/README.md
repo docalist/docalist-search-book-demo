@@ -49,7 +49,7 @@ Et bien sûr, [les pull requests sont plus que bienvenues](https://help.github.c
     - [Autres paramètres de la requête](searchapi.md#autres-paramètres-de-la-requête)
     - [Voir le contenu de la requête](searchapi.md#voir-le-contenu-de-la-requête)
   - [Exécuter la requête](searchapi.md#exécuter-la-requête)
-    - [La classe `SearchResults`](searchapi.md#la-classe-searchresults`)
-    - [Afficher une page de résultat](searchapi.md#afficher-une-page-de-résultats)
-  - [Créons un formulaire de recherche utilisateur](searchapi.md#créons-un-formulaire-de-recherche utilisateur)
+    - [La classe `SearchResults`](searchapi.md#la-classe-searchresults)
+    - [Afficher une page de résultats](searchapi.md#afficher-une-page-de-résultats)
+  - [Créons un formulaire de recherche utilisateur](searchapi.md#créons-un-formulaire-de-recherche-utilisateur)
 

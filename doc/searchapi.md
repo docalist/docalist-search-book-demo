@@ -189,7 +189,7 @@ L'objet `SearchResults` obtenu contient plusieurs informations :
 
 (à détailler)
 
-### Afficher une page de résultat
+### Afficher une page de résultats
 
 On peut ainsi créer une SERP très simple avec le code suivant :
 ```php
