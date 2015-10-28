@@ -13,7 +13,7 @@ namespace Docalist\BookDemo\Views;
 
 use Docalist\Search\SearchRequest;
 
-/**
+/*
  * Démo de l'API SearchRequest de docalist-search.
  */
 
@@ -48,7 +48,7 @@ use Docalist\Search\SearchRequest;
     printf('<p>Votre recherche : <code>%s</code></p>', $request->asEquation());
     printf('<p><small>Requête exécutée en %d ms (temps total %d ms).</small></p>',
         $results->took(),
-        $results->time()*1000
+        $results->time() * 1000
     );
 
     // Affiche le nombre de réponses obtenues
@@ -63,7 +63,7 @@ use Docalist\Search\SearchRequest;
         );
 
         echo '<ul class="ul-square">';
-        foreach($hits as $hit) {
+        foreach ($hits as $hit) {
             $post = get_post($hit->_id); /* @var $post WP_Post */
             printf('<li><h3><a href="%s">%s</a></h3><p>%s</p></li>',
                 esc_attr(get_the_permalink($post)),

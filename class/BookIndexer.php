@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the "Docalist Search: Book Demo" plugin.
  *
@@ -22,7 +23,8 @@ class BookIndexer extends PostIndexer
     /**
      * Crée un nouvel indexeur de livres.
      */
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct(Plugin::POST_TYPE);
     }
 

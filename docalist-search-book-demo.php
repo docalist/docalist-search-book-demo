@@ -18,21 +18,20 @@
  *
  * @author      Daniel Ménard <daniel.menard@laposte.net>
  */
-
 namespace Docalist\BookDemo;
 
 // Définit une constante pour indiquer que ce plugin est activé
 define('DOCALIST_SEARCH_BOOK_DEMO', __FILE__);
 
-/**
+/*
  * Initialise le plugin
  */
-add_action('plugins_loaded', function() {
+add_action('plugins_loaded', function () {
     // Auto désactivation si les plugins dont on a besoin ne sont pas activés
     $dependencies = ['DOCALIST_CORE', 'DOCALIST_SEARCH'];
-    foreach($dependencies as $dependency) {
+    foreach ($dependencies as $dependency) {
         if (! defined($dependency)) {
-            return add_action('admin_notices', function() use ($dependency) {
+            return add_action('admin_notices', function () use ($dependency) {
                 deactivate_plugins(plugin_basename(__FILE__));
                 unset($_GET['activate']); // empêche wp d'afficher "extension activée"
                 $dependency = ucwords(strtolower(strtr($dependency, '_', ' ')));
