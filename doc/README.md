@@ -27,7 +27,6 @@ Et bien sûr, [les pull requests sont plus que bienvenues](https://help.github.c
     - [Installation via Subversion](install.md#installation-via-subversion)
     - [Installation via Composer](install.md#installation-via-composer)
     - [Activation des plugins](install.md#activation-des-plugins)
-    - [](install.md#)
   - [Installation de Elastic Search](install.md#installation-de-elastic-search)
     - [Installation de Elastic Search en local](install.md#installation-de-elastic-search-en-local)
     - [Utilisation d'un service Elastic Search hébergé](install.md#utilisation-dun-service-elastic-search-hébergé)
