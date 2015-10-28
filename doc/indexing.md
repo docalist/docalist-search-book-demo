@@ -537,7 +537,8 @@ http://localhost:9200/monindex/_search?q=policier&pretty
       } 
     ]
   }
-}```
+}
+```
 
 ## Faisons quelques recherches
 
