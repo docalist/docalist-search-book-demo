@@ -29,9 +29,13 @@ use Docalist\Search\SearchRequest;
     <ul class="ul-square">
         <li>les documents de type <code>bookdemo</code>,</li>
         <li>qui ont le genre littéraire <code>roman</code>,</li>
-        <li>et contiennent le mot <code>vie</code> et l'expression exacte <code>remise en question</code> dans la description.</li>
+        <li>et contiennent le mot <code>vie</code> et l'expression exacte
+            <code>remise en question</code> dans la description.
+        </li>
     </ul>
-    <p>La requête est codée en dur dans le code source (<code>/plugins/docalist-search-book-demo/views/searchrequest-test.php</code>).
+    <p>La requête est codée en dur dans le code source
+        (<code>/plugins/docalist-search-book-demo/views/searchrequest-test.php</code>).
+    </p>
 <?php
     // Crée la requête
     $request = (new SearchRequest())
@@ -46,7 +50,8 @@ use Docalist\Search\SearchRequest;
     // Affiche la requête exécutée (et le temps total d'exécution)
     echo '<h2>Recherche de livres</h2>';
     printf('<p>Votre recherche : <code>%s</code></p>', $request->asEquation());
-    printf('<p><small>Requête exécutée en %d ms (temps total %d ms).</small></p>',
+    printf(
+        '<p><small>Requête exécutée en %d ms (temps total %d ms).</small></p>',
         $results->took(),
         $results->time() * 1000
     );
@@ -58,9 +63,7 @@ use Docalist\Search\SearchRequest;
         $total = $results->total();
         $start = 1 + ($request->page() - 1) * $request->size();
         $end = min($total, $start + $request->size() - 1);
-        printf('<h2>%d réponse(s) trouvée(s), affichage des réponses %d à %d :</h2>',
-            $total, $start, $end
-        );
+        printf('<h2>%d réponse(s) trouvée(s), affichage des réponses %d à %d :</h2>', $total, $start, $end);
 
         echo '<ul class="ul-square">';
         foreach ($hits as $hit) {

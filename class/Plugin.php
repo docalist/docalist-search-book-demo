@@ -62,7 +62,8 @@ class Plugin
                 __("Test de l'API de recherche docalist-search", 'docalist-search-demo-book/languages'),
                 __('API SearchRequest', 'docalist-search-demo-book/languages'),
                 'manage_options',
-                'docalist-book-search-request', function () {
+                'docalist-book-search-request',
+                function () {
                     $this->view('searchrequest');
                 });
         });
@@ -86,7 +87,7 @@ class Plugin
                 'view_item' => __('Voir le type', 'docalist-search-demo-book'),
                 'separate_items_with_commas' => __('Séparez les types avec une virgule', 'docalist-search-demo-book'),
                 'add_or_remove_items' => __('Ajouter ou supprimer des types', 'docalist-search-demo-book'),
-                'choose_from_most_used' => __('Choisissez parmi les types les plus souvent utilisés', 'docalist-search-demo-book'),
+                'choose_from_most_used' => __('Choisissez parmi plus souvent utilisés', 'docalist-search-demo-book'),
                 'popular_items' => __('Types courants', 'docalist-search-demo-book'),
                 'search_items' => __('Rechercher un type', 'docalist-search-demo-book'),
                 'not_found' => __('Non trouvé', 'docalist-search-demo-book'),

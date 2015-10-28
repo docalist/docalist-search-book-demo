@@ -36,7 +36,7 @@ add_action('plugins_loaded', function () {
                 unset($_GET['activate']); // empêche wp d'afficher "extension activée"
                 $dependency = ucwords(strtolower(strtr($dependency, '_', ' ')));
                 $plugin = get_plugin_data(__FILE__, true, false)['Name'];
-                echo "<div class='error'><p><b>$plugin</b> has been deactivated because it requires <b>$dependency</b>.</p></div>";
+                echo "<div class='error'><p><b>$plugin</b> requires <b>$dependency</b>.</p></div>";
             });
         }
     }
