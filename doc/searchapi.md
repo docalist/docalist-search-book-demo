@@ -203,26 +203,33 @@ On peut ainsi créer une SERP très simple avec le code suivant :
     // Exécute la requête
     $results = $request->execute();
 
-    // Affiche la requête exécutée (et le temps total d'exécution)
+    // Affiche la requête exécutée
     echo '<h2>Recherche de livres</h2>';
     printf('<p>Votre recherche : <code>%s</code></p>', $request->asEquation());
+
+    // Affiche le temps d'exécution de la requête
     printf(
         '<p><small>Requête exécutée en %d ms (temps total %d ms).</small></p>',
         $results->took(),
         $results->time() * 1000
     );
 
-    // Affiche le nombre de réponses obtenues
+    // Aucune réponse ?
     if (empty($hits = $results->hits())) {
         echo '<h2>Aucune réponse, désolé !</h2>';
-    } else {
-        $total = $results->total();
-        $start = 1 + ($request->page() - 1) * $request->size();
-        $end = min($total, $start + $request->size() - 1);
-        printf('<h2>%d réponse(s) trouvée(s), affichage des réponses %d à %d :</h2>',
-            $total, $start, $end
+    }
+
+    // Affiche les réponses obtenues
+    else {
+        // Indique le nombre de réponses obtenues et la position des résultats affichés
+        printf(
+            '<h2>%d réponse(s) trouvée(s), affichage des réponses %d à %d :</h2>',
+            $total = $results->total(),
+            $start = 1 + ($request->page() - 1) * $request->size(),
+            min($total, $start + $request->size() - 1)
         );
 
+        // Affiche la liste des réponses
         echo '<ul class="ul-square">';
         foreach ($hits as $hit) {
             $post = get_post($hit->_id); /* @var $post WP_Post */
@@ -235,11 +242,12 @@ On peut ainsi créer une SERP très simple avec le code suivant :
         }
         echo '</ul>';
     }
+?>
 ```
 
 > TODO : il y a un bug dans SearchResults, time() retourne une durée en secondes alors que took() retourne une durée en milli-secondes (c'est la raison du "*1000" dans le code ci-dessus). A corriger.
 
-> Le code complet de cet exemple figure dans le fichier vue `views/searchrequest.php` du plugin.
+> Le code complet de cet exemple figure dans le fichier `views/searchrequest.php` du plugin.
 
 ## Créons un formulaire de recherche utilisateur
 
