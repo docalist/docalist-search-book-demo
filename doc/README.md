@@ -41,3 +41,15 @@ Et bien sûr, [les pull requests sont plus que bienvenues](https://help.github.c
   - [Vérifions notre index](indexing.md#vérifions-notre-index)
   - [Faisons quelques recherches](indexing.md#faisons-quelques-recherches)
   - [Indexation en temps réel](indexing.md#indexation-en-temps-réel)
+
+### [API de recherche](searchapi.md)
+  - [Introduction](searchapi.md#introduction)
+  - [Créer une requête](searchapi.md#créer-une-requête)
+    - [La classe `SearchRequest`](searchapi.md#la-classe-searchrequest)
+    - [Autres paramètres de la requête](searchapi.md#autres-paramètres-de-la-requête)
+    - [Voir le contenu de la requête](searchapi.md#voir-le-contenu-de-la-requête)
+  - [Exécuter la requête](searchapi.md#exécuter-la-requête)
+    - [La classe `SearchResults`](searchapi.md#la-classe-searchresults`)
+    - [Afficher une page de résultat](searchapi.md#afficher-une-page-de-résultats)
+  - [Créons un formulaire de recherche utilisateur](searchapi.md#créons-un-formulaire-de-recherche utilisateur)
+
