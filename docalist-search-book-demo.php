@@ -7,16 +7,18 @@
  * For copyright and license information, please view the
  * LICENSE.txt file that was distributed with this source code.
  *
- * Plugin Name: Docalist Search: Book Demo
- * Plugin URI:  http://docalist.org
- * Description: Tutoriel docalist-search pour l'indexation d'un CPT "book".
- * Version:     0.1
- * Author:      Daniel Ménard
- * Author URI:  http://docalist.org/
- * Text Domain: docalist-search-book-demo
- * Domain Path: /languages
+ * Plugin Name:         Docalist Search: Book Demo
+ * Plugin URI:          http://docalist.org
+ * Description:         Tutoriel docalist-search pour l'indexation d'un CPT "book".
+ * Version:             1.0.0
+ * Author:              Daniel Ménard
+ * Author URI:          http://docalist.org/
+ * Text Domain:         docalist-search-book-demo
+ * Domain Path:         /languages
+ * GitHub Plugin URI:   https://github.com/docalist/docalist-search-book-demo
+ * GitHub Branch:       master
  *
- * @author      Daniel Ménard <daniel.menard@laposte.net>
+ * @author              Daniel Ménard <daniel.menard@laposte.net>
  */
 namespace Docalist\BookDemo;
 
