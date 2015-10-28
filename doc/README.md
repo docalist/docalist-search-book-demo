@@ -1,6 +1,6 @@
 # Introduction
 
-Le plugin [Docalist Search Book Demo](https://github.com/docalist/docalist-search-book-demo) est un plugin WordPress de démo qui explique comment fonctionne [docalist-search](https://github.com/docalist/docalist-search) sur un exemple simple.
+Le plugin [Docalist Search Book Demo](https://github.com/docalist/docalist-search-book-demo) est un plugin WordPress de démo qui explique comment fonctionne [docalist-search](https://github.com/docalist/docalist-search) sur un exemple simple (une liste de livres).
 
 Le code source du plugin est commenté et il est accompagné d'un tutoriel qui explique les différentes étapes.
 
@@ -24,4 +24,10 @@ Et bien sûr, [les pull requests sont plus que bienvenues](https://help.github.c
   - [Installation de Elastic Search en local](install.md#installation-de-elastic-search-en-local)
   - [Utilisation d'un service Elastic Search hébergé](install.md#utilisation-dun-service-elastic-search-hébergé)
 
-### [Structure du code](structure.md)
+### [Code du plugin](structure.md)
+  - [Structure des fichiers](structure.md#structure-des-fichiers)
+  - [Fichier de démarrage](structure.md#fichier-de-démarrage)
+  - [La classe `Plugin`](structure.md#la-classe-plugin)
+  - [La classe `BookIndexer`](structure.md#la-classe-bookindexer)
+    - [La méthode `mapping()`](structure.md#la-méthode-mapping)
+    - [La méthode `map()`](structure.md#la-méthode-map)
