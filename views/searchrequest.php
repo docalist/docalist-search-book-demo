@@ -68,7 +68,8 @@ use Docalist\Search\SearchRequest;
         echo '<ul class="ul-square">';
         foreach ($hits as $hit) {
             $post = get_post($hit->_id); /* @var $post WP_Post */
-            printf('<li><h3><a href="%s">%s</a></h3><p>%s</p></li>',
+            printf(
+                '<li><h3><a href="%s">%s</a></h3><p>%s</p></li>',
                 esc_attr(get_the_permalink($post)),
                 get_the_title($post),
                 wp_trim_words($post->post_content, 30)

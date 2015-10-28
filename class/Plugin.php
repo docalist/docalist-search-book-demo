@@ -65,7 +65,8 @@ class Plugin
                 'docalist-book-search-request',
                 function () {
                     $this->view('searchrequest');
-                });
+                }
+            );
         });
     }
 
