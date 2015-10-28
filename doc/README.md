@@ -13,8 +13,8 @@ Et bien sûr, [les pull requests sont plus que bienvenues](https://help.github.c
 ##Table des matières
 
 ### [Présentation et objectifs](presentation.md)
-  - [Elastic Search](presentation.md#elasticsearch)
-  - [A quoi ça sert ?](presentation.md#a-quoi-ça-sert)
+  - [Elastic Search](presentation.md#elastic-search)
+  - [A quoi ça sert ?](presentation.md#a-quoi-ça-sert-)
   - [Docalist Search](presentation.md#docalist-search)
   - [Le plugin de démo](presentation.md#le-plugin-de-démo)
 

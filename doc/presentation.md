@@ -55,7 +55,7 @@ Par défaut, il ne fait pas grand chose : il sait juste indexer (en temps réel)
 
 Son réel intérêt réside dans son API (entièrement orientée objet) qui permet d'indexer n'importe quel contenu, qu'ils s'agisse de contenus WordPress (custom post types, commentaires, utilisateurs, custom fields, tables sql spécifiques) ou de contenus externes (données provenant d'autres services, ficheiers, etc.)
 
-## Docalist Search Book Demo
+## Le plugin de démo
 
 Docalist Search Book Demo est un plugin de démonstration qui montre comment utiliser Docalist Search pour indexer un contenu très simple.
 
