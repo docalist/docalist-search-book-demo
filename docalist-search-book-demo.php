@@ -10,7 +10,7 @@
  * Plugin Name:         Docalist Search: Book Demo
  * Plugin URI:          http://docalist.org
  * Description:         Tutoriel docalist-search pour l'indexation d'un CPT "book".
- * Version:             1.0.1
+ * Version:             1.0.2
  * Author:              Daniel Ménard
  * Author URI:          http://docalist.org/
  * Text Domain:         docalist-search-book-demo
