@@ -2,7 +2,7 @@
 
 ## Structure des fichiers
 
-Le plugin est structuré de la façon suivante :
+Le plugin Book Démo est structuré de la façon suivante :
 
 ```
 /class/                                Classes, services et objets
@@ -49,11 +49,11 @@ C'est ce fichier qui contient les entêtes qui permettent d'indiquer à WordPres
 ```
 
 **Remarque :**
-> Cet entête contient également les entrées permettant à notre plugin d'être compatible avec le plugin [Github Updater](https://github.com/afragen/github-updater) (installation et mise à jour automatique d'un plugin WordPress hébergé sur Github, BitBucket ou GitLab).
+> Cet entête contient également les entrées permettant à notre plugin d'être compatible avec le plugin [Github Updater](https://github.com/afragen/github-updater) (installation et mise à jour automatique d'un plugin WordPress hébergé sur Github, BitBucket ou GitLab). [Plus d'informations](install.md#installation-via-github-updater).
 
 Ce fichier de démarrage fait seulement deux choses :
 
-- Il gère les dépendances et empêche notre plugin de démo de s'activer si les plugins docalist-core et docalist-plugin ne sont pas activés.
+- Il gère les dépendances et empêche notre plugin de démo de s'activer si les plugins docalist-core et docalist-plugin [ne sont pas activés]([Activation des plugins](install.md#activation-des-plugins).
 
 - Il crée une instance de la classe `Plugin`, la classe principale de notre plugin, et enregistre l'objet obtenu comme *service docalist* (architecture micro-services). 
 
@@ -62,11 +62,11 @@ C'est dans cette classe `Plugin` que les choses intéressantes commencent.
 
 ## La classe `Plugin`
 
-Cette classe fait assez peu de choses :
+Cette classe est responsable de l'initialisation de notre plugin :
 
-- Elle crée le custom post type `bookdemo` et la taxonomie associée `booktype` (cf. codex wordpress).
+1. Elle crée le custom post type `bookdemo` et la taxonomie associée `booktype` (cf. codex wordpress).
 
-- Elle indique à docalist-search que ce type de contenu peut être indexé :
+2. Elle indique à docalist-search que ce type de contenu peut être indexé :
 
     ```php
     add_filter('docalist_search_get_types', function (array $types) {
@@ -86,7 +86,7 @@ Cette classe fait assez peu de choses :
     >
     > Dans notre cas, le plus simple consiste à utiliser le même identifiant que pour le Custom Post Type WordPress.
 
-- Elle indique à docalist-search l'indexeur à utiliser pour indexer ce type de contenu :
+3. Elle indique à docalist-search l'indexeur à utiliser pour indexer ce type de contenu :
 
     ```php
     add_filter('docalist_search_get_bookdemo_indexer', function() {
@@ -102,6 +102,8 @@ Cette classe fait assez peu de choses :
     >
     > Attention : le nom du filtre contient l'identifiant de votre type (`bookdemo`), cela doit coller avec ce que vous avez indiqué auparavant dans le filtre `docalist_search_get_types`. Si ce n'est pas le cas, docalist-search affichera un message du style `"Warning: indexer for type 'bookdemo' is not available"`.
 
+
+> Note for myself : ce serait mieux si BookIndexer était défini sous forme de micro-service docalist.
 
 ## La classe `BookIndexer`
 
@@ -128,11 +130,11 @@ Elle indique à docalist-search comment indexer ce type de contenu :
 
   Autrement dit, elle *fournit les données*.
 
-Comme notre type livre est un custom post type WordPress, on hérite de la classe `PostIndexer` car elle fait déjà plein de choses dont on a besoin :
+Comme notre type livre est un custom post type WordPress, on hérite de la classe `PostIndexer` (l'un dex indexeurs standards fournis par docalist-search) car elle fait déjà plein de choses dont on a besoin :
 
 - Elle sait comment parcourir tous les posts de ce type et implémente la méthode `indexAll()` qui est utilisée, par exemple, pour faire une réindexation complète.
 
-- Elle sait déjà comment indexer les champs communs à tous les post types (ID, post_type, post_status, post_name, post_parent, post_author, post_date, post_modified, post_title, post_content et post_excerpt)
+- Elle sait déjà comment indexer les champs communs à tous les post types WordPress : `ID`, `post_type`, `post_status`, `post_name`, `post_parent`, `post_author`, `post_date`, `post_modified`, `post_title`, `post_content` et `post_excerpt`)
 
 - Elle implémente déjà l'indexation en temps réel et met en place les hooks nécessaires pour que l'index ElasticSearch soit mis à jour automatiquement lorsqu'un post est créé, modifié ou supprimé.
 
@@ -196,14 +198,14 @@ inconvénients :
 - C'est fastidieux et le mapping généré peut très vite devenir très complexe (près de 600 lignes
 par exemple pour le mapping complet d'une notice documentaire).
 
-- Il est très facile de faire une erreur (sans s'en rendre compte) et c'est difficile à maintenir
+- Il est très facile de faire une erreur (sans s'en rendre compte) et c'est difficile à maintenir.
 
-- D'un CPT à un autre, on aura beaucoup de redondance (not DRY)
+- D'un champ à un autre, d'un trype à un autre, on aura beaucoup de redondance (not [DRY](https://fr.wikipedia.org/wiki/Ne_vous_r%C3%A9p%C3%A9tez_pas)).
 
-- Un même champ peut se retrouver indexé différemment d'un CPT à l'autre, ce qui peut poser des
+- Un même champ peut se retrouver indexé différemment d'un type à un autre, ce qui peut poser des
 problèmes dans ElasticSearch
 
-Pour simplifier ça, docalist-search dispose d'un objet utilitaire, `MappingBuilder`, qui permet de générer plus facilement le tableau de mappings. 
+Pour simplifier ça, docalist-search dispose d'un objet utilitaire, `MappingBuilder`, qui permet de générer plus facilement le tableau de mappings.
 
 Pour l'exemple ci-dessus, ça donnerait :
 
@@ -232,23 +234,31 @@ Dans notre cas, notre indexeur hérite de PostIndexer et celui-ci sait déjà co
 On peut donc simplement écrire :
 
 ```php
-    // Crée un mapping contenant nos champs spécifiques
-    $builder = new MappingBuilder('fr-text');
-    $builder->field('booktype')->text()->filter();
+    public function mapping()
+    {
+        // Crée un mapping contenant nos champs spécifiques
+        $builder = new MappingBuilder('fr-text');
+        $builder->field('booktype')->text()->filter();
 
-	// Fusionne avec le mapping standard des posts
-    return array_merge_recursive(parent::mapping(), $builder->mapping());
+	    // Fusionne avec le mapping standard des posts
+        return array_merge_recursive(parent::mapping(), $builder->mapping());
+    }
 ```
 
 ### La méthode `map()`
 
-On a fait le plus dur ! La seule chose qu'il nous reste à faire, c'est d'indiquer comment convertir un post WordPress de type livre en document ElasticSearch respectant le mapping qu'on vient de définir.
+On a fait le plus dur !
+
+La seule chose qu'il nous reste à faire, c'est d'indiquer comment convertir un post WordPress de type livre en document ElasticSearch respectant le mapping qu'on vient de définir.
 
 Là encore, la classe `PostIndexer` nous simplifie les choses car elle sait déjà gérer tous les champs standard d'un post WordPress. On peut donc récupérer le travail déjà fait et on a juste à ajouter les termes de notre taxonomie :
 
 ```php
-    $document = parent::map($post);
-    $document['booktype'] = wp_get_post_terms($post->ID, 'booktype', ['fields' => 'names']);
+    public function map($post)
+    {
+        $document = parent::map($post);
+        $document['booktype'] = wp_get_post_terms($post->ID, 'booktype', ['fields' => 'names']);
 
-    return $document;
+        return $document;
+  }
 ```

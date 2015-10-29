@@ -49,14 +49,15 @@ $request = (new SearchRequest([
 ]));
 ```
 
-C'est pratique, notamment, si la requête à exécuter provient d'un formulaire (new SearchRequest($_GET) par exemple) :
+C'est pratique, notamment, si la requête à exécuter provient d'un formulaire par exemple :
+
 ```php
 $request = new SearchRequest($_GET);
 ```
 
 ### Autres paramètres de la requête
 
-(à détailler)
+(TODO : à détailler)
 
 Outre les critères de recherche, la requête contient des paramètres qui permettent de choisir les réponses à retourner :
 
@@ -67,7 +68,7 @@ Outre les critères de recherche, la requête contient des paramètres qui perme
 
 **Exemple :**
 
-Affichage de la 3ème page de réponses (20 réponses par page), tri par titre croissants et génération d'une facette par type de livre (top 10) :
+Affichage de la 3ème page de réponses (20 réponses par page), tri par titres croissants et génération d'une facette par type de livre (top 10) :
 
 ```php
 $request = (new SearchRequest())
@@ -83,7 +84,7 @@ $request = (new SearchRequest())
 
 >TODO : la facette, c'est juste pour l'exemple, ça ne marchera pas car la facette 'booktypefacet' doit au préalable avoir été définie via le filtre `docalist_search_get_facets`.
 >
->La définition et la gestion des facettes est l'un des points à revoir dans docalist search.
+>La gestion des facettes est l'un des points à revoir dans docalist search.
 
 ### Voir le contenu de la requête
 
