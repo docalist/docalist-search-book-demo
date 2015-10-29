@@ -24,9 +24,9 @@ Aujourd'hui, ElasticSearch est présent partout dans le monde et à passé des p
 
 [Plusieurs livres](https://www.google.fr/webhp?hl=fr#q=elasticsearch&hl=fr&tbm=bks) sont disponibles, [des conférences](https://www.elastic.co/elasticon), [des ateliers](https://www.elastic.co/community/meetups), [des vidéos](https://www.elastic.co/videos) et [des formations](http://training.elastic.co/) sont très régulièrement proposées et [de nombreux produits](https://www.elastic.co/products) sont venus compléter le produit initial ([Kibana](https://www.elastic.co/products/kibana), [Logstach](https://www.elastic.co/products/logstash), [Marvel](https://www.elastic.co/products/marvel), [Shield](https://www.elastic.co/products/shield), [Watcher](https://www.elastic.co/products/watcher), etc.)
 
-En parallèle, tout un éco-système s'est créé : connecteurs et librairies pour intégrer ElasticSearch dans les principaux frameworks et CMS, entreprise proposant de l'hébergement ElasticSearch en mode SaaS, etc.
+En parallèle, tout un éco-système s'est créé : connecteurs et librairies pour intégrer ElasticSearch dans les principaux frameworks et CMS, entreprises proposant de l'hébergement ElasticSearch en mode SaaS, etc.
 
-Tous les sites en tant soit peu importants utilisent ElasticSearch : Wikipedia, The Guardian, GitHub, StackOverflow, Goldman Sachs, Mozilla, EBay, Adobe, NetFlix, Orange, FaceBook, Reuters, Ing Direct, Verizon, Deezer, la Nasa, le Cern, etc.
+Tous les sites un tant soit peu importants utilisent ElasticSearch : Wikipedia, The Guardian, GitHub, StackOverflow, Goldman Sachs, Mozilla, EBay, Adobe, NetFlix, Orange, FaceBook, Reuters, Ing Direct, Verizon, Deezer, la Nasa, le Cern, etc.
 
 Même Microsoft (qui dispose pourtant de son propre moteur de recherche), [utilise ElasticSearch pour plusieurs de ses produits](https://www.elastic.co/elasticon/2015/sf/powering-real-time-search-at-microsoft) (MSN, Azure, etc.)
 
@@ -40,22 +40,22 @@ Souvent, on commence à s'intéresser à ElasticSearch pour des problèmes de pe
 
 - Indexer de façon simple vos données, qu'elles soient textuelles, structurées ou semi-structurées.
 - Traiter des volumes de données énormes sans avoir à dépenser des fortunes pour l'infrastructure.
-- Disposer d'un moteur de recherche bien plus performant que ce qu'on peut faire avec du SQL, que ce soit en termes de possibilités de recherche, en termes de performances, ou en termes de pertinence des réponses obtenues.
+- Disposer d'un moteur de recherche bien plus performant que ce qu'on peut faire avec du SQL, que ce soit en termes de possibilités de recherche, en termes de performances, ou en terme de pertinence des réponses obtenues.
 - Traiter correctement les problèmes linguistiques et sémantiques.
 - Analyser vos données (data mining) et produire de la connaissance à partir des informations dont vous disposez déjà.
-- Incorporer en temps réel les flux de données produits (des tweets, des logs...)
+- Incorporer en temps réel les flux de données (des tweets, des logs...)
 - Mettre en place très facilement une interface de recherche moderne : recherche transversale sur plusieurs corpus (recherche universelle), recherche "à la google", auto-completion, recherche guidée par des facettes, etc.
 - etc.
 
-Au delà de ça, ElasticSearch influe sur la façon même de développer une application moderne : il devient enfin possible de se libérer des limites et contraintes imposées par les bases relationnelles SQL (jointures, normalisation 3NF, UML) et de revenir à des concepts beaucoup plus simples à appréhender (DDD, modélisation entités-relations, etc.)
+Au delà de ça, ElasticSearch influe sur la façon même de développer une application moderne : il devient enfin possible de se libérer des limites et contraintes imposées par les bases relationnelles SQL (jointures, normalisation 3NF, UML) et de revenir à des concepts beaucoup plus simples à appréhender (dénormalisation, DDD, modélisation entités-relations, etc.)
 
 ## Docalist Search
 
 Docalist Search est un petit plugin pour WordPress. Son objectif est simple : vous permettre de disposer facilement de la puissance d'ElasticSearch pour votre site WordPress.
 
-Par défaut, il ne fait pas grand chose : il sait juste indexer (en temps réel) les articles et les pages de votre site.
+Par défaut, il ne fait pas grand chose : il sait juste indexer en temps réel les articles et les pages de votre site.
 
-Son réel intérêt réside dans son API (entièrement orientée objet) qui permet d'indexer n'importe quel contenu, qu'ils s'agisse de contenus WordPress (custom post types, commentaires, utilisateurs, custom fields, tables sql spécifiques) ou de contenus externes (données provenant d'autres services, ficheiers, etc.)
+Son réel intérêt réside dans son [API](searchapi.md) (entièrement orientée objet) qui permet d'indexer n'importe quel contenu, qu'ils s'agisse de contenus WordPress (custom post types, commentaires, utilisateurs, custom fields, tables sql spécifiques) ou de contenus externes (données provenant d'autres services, fichiers, etc.)
 
 ## Le plugin de démo
 
