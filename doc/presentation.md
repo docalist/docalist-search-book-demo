@@ -30,6 +30,8 @@ Tous les sites en tant soit peu importants utilisent ElasticSearch : Wikipedia, 
 
 Même Microsoft (qui dispose pourtant de son propre moteur de recherche), [utilise ElasticSearch pour plusieurs de ses produits](https://www.elastic.co/elasticon/2015/sf/powering-real-time-search-at-microsoft) (MSN, Azure, etc.)
 
+> Crédits : une partie du texte de ce chapitre provient de [wikipedia](https://fr.wikipedia.org/wiki/Elasticsearch).
+
 ## A quoi ça sert ?
 
 ElasticSearch peut être utilisé dans [tellement de contextes différents](https://www.elastic.co/use-cases) qu'il est assez difficile de répondre facilement à la question "à quoi ça sert ?" : [même les développeurs d'ElasticSearch ont du mal !](https://www.elastic.co/blog/describe-elasticsearch)
