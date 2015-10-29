@@ -48,8 +48,8 @@ class BookIndexer extends PostIndexer
         // Ce serait mieux d'avoir une méthode ad hoc du style :
         //     MappingBuilder::mergeWith(array otherMapping).
         // On pourrait alors écrire :
-        //     $builder->mergeWith(parent::mapping());
-        //     return $builder->mapping();
+        //     builder->mergeWith(parent::mapping());
+        //     return builder->mapping();
     }
 
     /**
